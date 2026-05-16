@@ -340,6 +340,54 @@
     }
     .proj-card:hover .proj-link { gap: .6rem; }
 
+    /* Featured flagship project */
+    .proj-featured {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 2.4rem;
+      text-decoration: none; color: inherit;
+      display: grid; grid-template-columns: 52px 1fr; gap: 1.9rem;
+      position: relative; overflow: hidden; margin-bottom: 1.1rem;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+    }
+    .proj-featured::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--blue), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .55s var(--ease);
+    }
+    .proj-featured:hover::before { transform: scaleX(1); }
+    .proj-featured:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,.5); border-color: rgba(224,125,69,.18); }
+    .pf-icon {
+      width: 52px; height: 52px; color: var(--blue); opacity: .85;
+      transition: opacity .25s, color .25s;
+    }
+    .proj-featured:hover .pf-icon { opacity: 1; color: var(--accent); }
+    .pf-icon svg { width: 100%; height: 100%; }
+    .pf-flag {
+      display: inline-block; font-size: .6rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+      background: var(--accent-d); border: 1px solid var(--accent-b);
+      border-radius: 5px; padding: .22rem .6rem; margin-bottom: .85rem;
+    }
+    .pf-name {
+      font-family: var(--display); font-size: 1.7rem; font-weight: 400;
+      color: var(--text); letter-spacing: -.01em; margin-bottom: .15rem;
+    }
+    .pf-sub { font-size: .8rem; font-weight: 400; color: var(--blue); margin-bottom: .9rem; letter-spacing: .02em; }
+    .pf-desc { font-size: .88rem; font-weight: 300; color: var(--muted); line-height: 1.8; margin-bottom: 1.1rem; max-width: 62ch; }
+    .pf-tags { display: flex; flex-wrap: wrap; gap: .38rem; margin-bottom: 1.3rem; }
+    .pf-tags .tag {
+      font-size: .67rem; font-weight: 400; letter-spacing: .04em;
+      color: var(--muted); background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 5px; padding: .18rem .55rem;
+    }
+    .pf-link {
+      font-size: .76rem; font-weight: 500; letter-spacing: .04em; color: var(--accent);
+      display: inline-flex; align-items: center; gap: .35rem;
+      transition: gap .2s var(--ease);
+    }
+    .proj-featured:hover .pf-link { gap: .6rem; }
+
     /* ── SKILLS ────────────────────────────────── */
     #skills { background: var(--bg); }
     .skills-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
@@ -363,6 +411,42 @@
       box-shadow: 0 0 12px rgba(224,125,69,.08);
     }
 
+    /* ── CERTIFICATIONS ────────────────────────── */
+    #certifications { background: var(--bg); }
+    .cert-stack { display: flex; flex-direction: column; gap: .85rem; }
+    .cert-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.7rem 2rem;
+      display: grid; grid-template-columns: 44px 1fr auto; gap: 1.6rem; align-items: center;
+      position: relative; overflow: hidden;
+      transition: border-color .3s var(--ease), background .3s;
+    }
+    .cert-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+      background: var(--blue); transform: scaleY(0); transform-origin: bottom;
+      transition: transform .4s var(--ease);
+    }
+    .cert-card:hover::before { transform: scaleY(1); }
+    .cert-card:hover { border-color: rgba(91,158,181,.18); background: var(--bg3); }
+    .cert-badge {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--blue-d); border: 1px solid var(--blue-b);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
+    }
+    .cert-badge svg { width: 22px; height: 22px; }
+    .cert-name { font-size: .98rem; font-weight: 500; color: var(--text); margin-bottom: .18rem; }
+    .cert-issuer { font-size: .8rem; font-weight: 400; color: var(--blue); letter-spacing: .02em; }
+    .cert-meta { display: flex; align-items: center; gap: 1.4rem; }
+    .cert-date { font-size: .74rem; color: var(--muted); white-space: nowrap; }
+    .cert-verify {
+      font-size: .74rem; font-weight: 500; letter-spacing: .03em;
+      color: var(--muted); text-decoration: none; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: .3rem;
+      transition: color .2s, gap .2s var(--ease);
+    }
+    .cert-verify:hover { color: var(--accent); gap: .5rem; }
+
     /* ── VOLUNTEERING ──────────────────────────── */
     #volunteering { background: var(--bg2); }
     .vol-card {
@@ -375,6 +459,88 @@
     .vol-role { font-size: .98rem; font-weight: 500; color: var(--text); margin-bottom: .2rem; }
     .vol-org { font-size: .8rem; color: var(--blue); margin-bottom: .75rem; }
     .vol-desc { font-size: .85rem; font-weight: 300; color: var(--muted); line-height: 1.85; }
+
+    /* ── RECONNAISSANCE ────────────────────────── */
+    #recon { background: var(--bg); }
+    .recon-sub {
+      font-size: .93rem; font-weight: 300; color: var(--muted);
+      line-height: 1.85; max-width: 560px; margin-bottom: 2.2rem;
+    }
+    .recon-sub strong { color: var(--text); font-weight: 500; }
+
+    .term {
+      background: #0f0e0d; border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.4);
+    }
+    .term-bar {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .7rem 1rem; border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .term-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--subtle); }
+    .term-dot.r { background: #c4503e; }
+    .term-dot.y { background: #c98a2e; }
+    .term-dot.g { background: #4f8a52; }
+    .term-title {
+      margin-left: .6rem; font-size: .7rem; letter-spacing: .08em;
+      color: var(--subtle); text-transform: uppercase;
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .term-body {
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .82rem; line-height: 1.95; color: var(--text);
+      padding: 1.5rem 1.6rem; min-height: 340px;
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .term-line { display: block; opacity: 0; transform: translateY(4px); }
+    .term-line.show { opacity: 1; transform: none; transition: opacity .25s var(--ease), transform .25s var(--ease); }
+    .term-q { color: var(--accent); }                 /* prompt arrow + key */
+    .term-k { color: var(--muted); }                  /* label */
+    .term-v { color: var(--text); }                   /* value */
+    .term-ok { color: var(--teal); }                  /* success */
+    .term-warn { color: var(--blue); }                /* protected / blocked */
+    .term-cursor {
+      display: inline-block; width: 8px; height: 1rem;
+      background: var(--accent); vertical-align: text-bottom;
+      animation: termblink 1.1s steps(1) infinite; margin-left: 2px;
+    }
+    @keyframes termblink { 0%,50%{opacity:1} 50.01%,100%{opacity:0} }
+
+    .recon-note {
+      display: flex; align-items: flex-start; gap: .7rem;
+      margin-top: 1.4rem; padding: 1rem 1.2rem;
+      background: var(--blue-d); border: 1px solid var(--blue-b);
+      border-radius: 10px;
+      font-size: .78rem; font-weight: 300; color: var(--muted); line-height: 1.7;
+    }
+    .recon-note svg { width: 16px; height: 16px; color: var(--blue); flex-shrink: 0; margin-top: .15rem; }
+    .recon-note strong { color: var(--text); font-weight: 500; }
+
+    .recon-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden; margin-top: 1.4rem;
+    }
+    .recon-col { background: var(--bg2); padding: 1.5rem 1.6rem; }
+    .recon-col h4 {
+      font-size: .65rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .recon-row {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: .42rem 0; border-bottom: 1px solid var(--border);
+      font-size: .78rem;
+    }
+    .recon-row:last-child { border-bottom: none; }
+    .recon-row .rk { color: var(--muted); font-weight: 300; white-space: nowrap; }
+    .recon-row .rv {
+      color: var(--text); font-weight: 400; text-align: right;
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .74rem; word-break: break-word;
+    }
+    .recon-row .rv.dim { color: var(--subtle); }
+    .recon-row .rv.good { color: var(--teal); }
 
     /* ── CONTACT ───────────────────────────────── */
     #contact { background: var(--bg); }
@@ -425,6 +591,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .proj-grid { grid-template-columns: 1fr 1fr; }
       .skills-cols { grid-template-columns: 1fr 1fr; }
+      .recon-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 1.5rem; }
@@ -432,9 +599,11 @@
       #hero { padding: 8rem 1.5rem 4rem; }
       .wrap { padding: 3.5rem 1.5rem; }
       .proj-grid { grid-template-columns: 1fr; }
+      .proj-featured { grid-template-columns: 1fr; gap: 1.3rem; padding: 1.9rem; }
       .skills-cols { grid-template-columns: 1fr; }
       .exp-card { grid-template-columns: 1fr; }
       .vol-card { grid-template-columns: 1fr; }
+      .term-body { padding: 1.2rem 1.1rem; font-size: .76rem; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
     }
   </style>
@@ -572,6 +741,37 @@
   <div class="wrap">
     <div class="s-label reveal">Projects</div>
     <h2 class="reveal">Things I've <em>built.</em></h2>
+
+    <!-- MSME Shield — featured flagship project -->
+    <a href="https://github.com/SkyMaj0r/msme_shield" target="_blank" class="proj-featured reveal">
+      <div class="pf-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.5l7.5 3v5.5c0 4.6-3.2 8.9-7.5 10-4.3-1.1-7.5-5.4-7.5-10V5.5z"/>
+          <path d="M9.2 12.2l2 2 3.6-4"/>
+        </svg>
+      </div>
+      <div>
+        <span class="pf-flag">Featured · Minor Project</span>
+        <div class="pf-name">MSME Shield</div>
+        <div class="pf-sub">Passive-Hybrid Cyber Risk Quantification Platform · SRM IST 2025–26</div>
+        <div class="pf-desc">
+          A security platform that turns live threat intelligence — NVD, CISA KEV, and EPSS — into a single, jargon-free 0–100 risk score for Indian small businesses in under ten minutes. A zero-credential edge agent collects inventory with read-only OS calls and HMAC-SHA256-signed telemetry, scored by MRQM, an original risk model weighting technical, governance, and exposure pillars, with CERT-In compliance mapping built in.
+        </div>
+        <div class="pf-tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Celery + Redis</span>
+          <span class="tag">CISA KEV</span>
+          <span class="tag">EPSS</span>
+          <span class="tag">CERT-In</span>
+          <span class="tag">HMAC-SHA256</span>
+        </div>
+        <span class="pf-link">View on GitHub →</span>
+      </div>
+    </a>
+
     <div class="proj-grid">
 
       <!-- StatChicane — bar chart / data analysis icon -->
@@ -604,11 +804,12 @@
         <span class="proj-link">View on GitHub →</span>
       </a>
 
-      <!-- SkyVoyant — airplane icon -->
+      <!-- SkyVoyant — paper-plane / send icon -->
       <a href="https://github.com/SkyMaj0r/SkyVoyant" target="_blank" class="proj-card reveal">
         <div class="proj-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 4s-2 1-3.5 2.5L8 11 .8 9.2C-.2 9 0 8 0 8l2-3 6 1L11 2h2l1 4 4 1 1 2-2.2 10.2z"/>
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
           </svg>
         </div>
         <div class="proj-lang">Java · Full-Stack</div>
@@ -670,6 +871,36 @@
 
 <hr class="divider" />
 
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="s-label reveal">Certifications</div>
+    <h2 class="reveal">Credentials I've <em>earned.</em></h2>
+    <div class="cert-stack">
+
+      <div class="cert-card reveal">
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/>
+            <path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">GitHub Copilot</div>
+          <div class="cert-issuer">Microsoft Learn · Verified credential</div>
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">Mar 2026 — Mar 2028</span>
+          <a href="https://learn.microsoft.com/api/credentials/share/en-in/sarthaksuwan-4140/C4A66EF8F02964B9?sharingId=C0BA62F8D26E1341" target="_blank" rel="noopener" class="cert-verify">Verify ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- VOLUNTEERING -->
 <section id="volunteering">
   <div class="wrap">
@@ -688,6 +919,79 @@
         <div class="vol-desc">
           Volunteered as a digital literacy educator in the village of Dugdha, Jamshedpur — part of a solar-powered mobile computer lab initiative to bridge the digital divide. Taught students using computers for the first time: MS Word, Excel, Gmail setup, and safe online practices. Used gamification to reduce anxiety and build real digital confidence from scratch.
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- RECONNAISSANCE -->
+<section id="recon">
+  <div class="wrap">
+    <div class="s-label reveal">Reconnaissance</div>
+    <h2 class="reveal">What your browser <em>told me.</em></h2>
+    <p class="recon-sub reveal">
+      You didn't fill in a form. You didn't grant a permission. Yet the moment you
+      arrived, your browser volunteered all of this — <strong>and so does every site you visit.</strong>
+      नित्यं जाग्रतः भव.
+    </p>
+
+    <div class="term reveal">
+      <div class="term-bar">
+        <span class="term-dot r"></span>
+        <span class="term-dot y"></span>
+        <span class="term-dot g"></span>
+        <span class="term-title">recon — passive scan</span>
+      </div>
+      <div class="term-body" id="termBody"><span class="term-cursor" id="termCursor"></span></div>
+    </div>
+
+    <div class="recon-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <div>
+        <strong>Nothing here leaves your browser.</strong> No logging, no storage, no analytics,
+        no server. This runs entirely on your device as a live demonstration of what any
+        website can read — not a record of what this one keeps.
+      </div>
+    </div>
+
+    <div class="recon-grid reveal">
+      <div class="recon-col">
+        <h4>Device</h4>
+        <div class="recon-row"><span class="rk">Operating system</span><span class="rv dim" data-r="os">—</span></div>
+        <div class="recon-row"><span class="rk">Browser</span><span class="rv dim" data-r="browser">—</span></div>
+        <div class="recon-row"><span class="rk">Device type</span><span class="rv dim" data-r="device">—</span></div>
+        <div class="recon-row"><span class="rk">Screen</span><span class="rv dim" data-r="screen">—</span></div>
+        <div class="recon-row"><span class="rk">CPU cores</span><span class="rv dim" data-r="cores">—</span></div>
+        <div class="recon-row"><span class="rk">Memory</span><span class="rv dim" data-r="mem">—</span></div>
+        <div class="recon-row"><span class="rk">GPU</span><span class="rv dim" data-r="gpu">—</span></div>
+        <div class="recon-row"><span class="rk">Touch</span><span class="rv dim" data-r="touch">—</span></div>
+      </div>
+      <div class="recon-col">
+        <h4>Network</h4>
+        <div class="recon-row"><span class="rk">Public IP</span><span class="rv dim" data-r="ip">—</span></div>
+        <div class="recon-row"><span class="rk">ISP / carrier</span><span class="rv dim" data-r="isp">—</span></div>
+        <div class="recon-row"><span class="rk">ASN</span><span class="rv dim" data-r="asn">—</span></div>
+        <div class="recon-row"><span class="rk">City</span><span class="rv dim" data-r="city">—</span></div>
+        <div class="recon-row"><span class="rk">Region</span><span class="rv dim" data-r="region">—</span></div>
+        <div class="recon-row"><span class="rk">Country</span><span class="rv dim" data-r="country">—</span></div>
+        <div class="recon-row"><span class="rk">Connection</span><span class="rv dim" data-r="conn">—</span></div>
+        <div class="recon-row"><span class="rk">Local IP (WebRTC)</span><span class="rv dim" data-r="rtc">—</span></div>
+      </div>
+      <div class="recon-col">
+        <h4>Session</h4>
+        <div class="recon-row"><span class="rk">Timezone</span><span class="rv dim" data-r="tz">—</span></div>
+        <div class="recon-row"><span class="rk">Local time</span><span class="rv dim" data-r="time">—</span></div>
+        <div class="recon-row"><span class="rk">Language</span><span class="rv dim" data-r="lang">—</span></div>
+        <div class="recon-row"><span class="rk">Do Not Track</span><span class="rv dim" data-r="dnt">—</span></div>
+        <div class="recon-row"><span class="rk">Cookies</span><span class="rv dim" data-r="cookies">—</span></div>
+        <div class="recon-row"><span class="rk">Ad blocker</span><span class="rv dim" data-r="adblock">—</span></div>
+        <div class="recon-row"><span class="rk">Referrer</span><span class="rv dim" data-r="ref">—</span></div>
+        <div class="recon-row"><span class="rk">Arrived</span><span class="rv dim" data-r="arrived">—</span></div>
       </div>
     </div>
   </div>
@@ -738,7 +1042,7 @@
   });
   document.addEventListener('mousedown', () => dot.classList.add('clicking'));
   document.addEventListener('mouseup',   () => dot.classList.remove('clicking'));
-  document.querySelectorAll('a, button, .pill, .proj-card, .exp-card, .c-row, .stat').forEach(el => {
+  document.querySelectorAll('a, button, .pill, .proj-card, .proj-featured, .exp-card, .cert-card, .c-row, .stat').forEach(el => {
     el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
     el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
   });
@@ -795,6 +1099,211 @@
     });
   }, { threshold: 0.45 });
   sections.forEach(s => navIO.observe(s));
+
+  // ── RECONNAISSANCE ENGINE ──────────────────
+  (function recon() {
+    const ARRIVED = new Date();
+    const setRow = (key, val, cls) => {
+      const el = document.querySelector(`[data-r="${key}"]`);
+      if (!el) return;
+      el.textContent = val;
+      el.classList.remove('dim');
+      if (cls) el.classList.add(cls);
+    };
+    const safe = (fn, fallback) => { try { const v = fn(); return (v === undefined || v === null || v === '') ? fallback : v; } catch { return fallback; } };
+
+    function parseUA() {
+      const ua = navigator.userAgent || '';
+      const uad = navigator.userAgentData;
+      let os = 'Unknown', browser = 'Unknown';
+      if (uad && uad.platform) os = uad.platform;
+      else if (/Windows NT 10/.test(ua)) os = 'Windows 10/11';
+      else if (/Windows NT/.test(ua)) os = 'Windows';
+      else if (/Mac OS X ([0-9_]+)/.test(ua)) os = 'macOS ' + (RegExp.$1 || '').replace(/_/g, '.').replace(/\.0$/, '');
+      else if (/Android ([0-9.]+)/.test(ua)) os = 'Android ' + RegExp.$1;
+      else if (/(iPhone|iPad).*OS ([0-9_]+)/.test(ua)) os = 'iOS ' + RegExp.$2.replace(/_/g, '.');
+      else if (/Linux/.test(ua)) os = 'Linux';
+      if (/Edg\//.test(ua)) browser = 'Edge ' + (ua.match(/Edg\/([0-9]+)/) || [])[1];
+      else if (/OPR\//.test(ua)) browser = 'Opera ' + (ua.match(/OPR\/([0-9]+)/) || [])[1];
+      else if (/Chrome\//.test(ua) && !/Chromium/.test(ua)) browser = 'Chrome ' + (ua.match(/Chrome\/([0-9]+)/) || [])[1];
+      else if (/Firefox\//.test(ua)) browser = 'Firefox ' + (ua.match(/Firefox\/([0-9]+)/) || [])[1];
+      else if (/Version\/([0-9.]+).*Safari/.test(ua)) browser = 'Safari ' + RegExp.$1;
+      return { os, browser };
+    }
+
+    function getGPU() {
+      try {
+        const c = document.createElement('canvas');
+        const gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+        if (!gl) return null;
+        const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+        if (!dbg) return null;
+        const r = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL);
+        return r ? (String(r).replace(/ANGLE \(|\)$/g, '').split(',')[0].trim() || r) : null;
+      } catch { return null; }
+    }
+
+    function detectAdblock() {
+      return new Promise(res => {
+        const bait = document.createElement('div');
+        bait.className = 'adsbox ad-banner ad-placement pub_300x250';
+        bait.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;';
+        document.body.appendChild(bait);
+        setTimeout(() => {
+          const blocked = bait.offsetHeight === 0 || bait.offsetParent === null ||
+                          getComputedStyle(bait).display === 'none';
+          bait.remove();
+          res(blocked);
+        }, 120);
+      });
+    }
+
+    function webrtcLocalIP() {
+      return new Promise(res => {
+        let done = false;
+        const finish = v => { if (!done) { done = true; res(v); } };
+        try {
+          const pc = new RTCPeerConnection({ iceServers: [] });
+          pc.createDataChannel('');
+          pc.onicecandidate = e => {
+            if (!e || !e.candidate || !e.candidate.candidate) return;
+            const m = e.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})|([a-f0-9-]+\.local)/i);
+            if (!m) return;
+            const v = m[0];
+            if (/\.local$/i.test(v)) finish({ ip: null, mdns: true });
+            else if (/^(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.)/.test(v)) finish({ ip: v, mdns: false });
+          };
+          pc.createOffer().then(o => pc.setLocalDescription(o)).catch(() => finish(null));
+          setTimeout(() => finish(null), 1500);
+        } catch { finish(null); }
+      });
+    }
+
+    async function fetchIP() {
+      const withTimeout = (p, ms) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error('timeout')), ms))]);
+      try {
+        const r = await withTimeout(fetch('https://ipapi.co/json/'), 4000);
+        if (r.ok) {
+          const d = await r.json();
+          if (d && d.ip && !d.error) return { ip: d.ip, isp: d.org, asn: d.asn, city: d.city, region: d.region, country: d.country_name };
+        }
+      } catch {}
+      try {
+        const r = await withTimeout(fetch('https://ipwho.is/'), 4000);
+        if (r.ok) {
+          const d = await r.json();
+          if (d && d.success !== false && d.ip) return {
+            ip: d.ip, isp: d.connection && d.connection.isp,
+            asn: d.connection && d.connection.asn ? 'AS' + d.connection.asn : null,
+            city: d.city, region: d.region, country: d.country
+          };
+        }
+      } catch {}
+      try {
+        const r = await withTimeout(fetch('https://api.ipify.org?format=json'), 4000);
+        if (r.ok) { const d = await r.json(); if (d && d.ip) return { ip: d.ip }; }
+      } catch {}
+      return null;
+    }
+
+    const { os, browser } = parseUA();
+    const dpr = window.devicePixelRatio || 1;
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const data = {
+      os, browser,
+      device: safe(() => navigator.maxTouchPoints > 1 && isMobile ? 'Mobile / touch' : isMobile ? 'Mobile' : 'Desktop', 'Unknown'),
+      screen: `${screen.width}\u00d7${screen.height} @${dpr}x \u00b7 ${screen.colorDepth}-bit`,
+      cores: safe(() => navigator.hardwareConcurrency + ' logical', 'Not exposed'),
+      mem: safe(() => navigator.deviceMemory ? '~' + navigator.deviceMemory + ' GB' : 'Not exposed', 'Not exposed'),
+      gpu: getGPU() || 'Masked / unavailable',
+      touch: safe(() => (navigator.maxTouchPoints || 0) + ' points', '0 points'),
+      tz: safe(() => Intl.DateTimeFormat().resolvedOptions().timeZone, 'Unknown'),
+      time: safe(() => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }), '\u2014'),
+      lang: safe(() => (navigator.languages || [navigator.language]).slice(0, 2).join(', '), navigator.language || '\u2014'),
+      dnt: safe(() => { const d = navigator.doNotTrack || window.doNotTrack; return d === '1' || d === 'yes' ? 'Enabled' : 'Not set'; }, 'Unknown'),
+      cookies: safe(() => navigator.cookieEnabled ? 'Enabled' : 'Disabled', 'Unknown'),
+      conn: safe(() => { const c = navigator.connection; return c && c.effectiveType ? `${c.effectiveType}${c.downlink ? ' \u00b7 ' + c.downlink + ' Mbps' : ''}` : 'Not exposed'; }, 'Not exposed'),
+      ref: safe(() => document.referrer ? new URL(document.referrer).hostname : 'Direct / none', 'Direct / none'),
+      arrived: ARRIVED.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    };
+
+    let started = false;
+    const body = document.getElementById('termBody');
+    const cursor = document.getElementById('termCursor');
+    function line(html, cls) {
+      const span = document.createElement('span');
+      span.className = 'term-line' + (cls ? ' ' + cls : '');
+      span.innerHTML = html + '\n';
+      body.insertBefore(span, cursor);
+      requestAnimationFrame(() => span.classList.add('show'));
+      body.scrollTop = body.scrollHeight;
+    }
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+
+    async function runTerminal() {
+      if (started) return; started = true;
+      line(`<span class="term-q">$</span> ./recon --passive --target self`);
+      await wait(420);
+      line(`<span class="term-k">[*] probing local runtime\u2026</span>`);
+      await wait(360);
+      line(`  <span class="term-k">os         </span> <span class="term-v">${data.os}</span>`); setRow('os', data.os); await wait(120);
+      line(`  <span class="term-k">browser    </span> <span class="term-v">${data.browser}</span>`); setRow('browser', data.browser); await wait(120);
+      line(`  <span class="term-k">device     </span> <span class="term-v">${data.device}</span>`); setRow('device', data.device); await wait(120);
+      line(`  <span class="term-k">display    </span> <span class="term-v">${data.screen}</span>`); setRow('screen', data.screen); await wait(120);
+      line(`  <span class="term-k">cpu / mem  </span> <span class="term-v">${data.cores} \u00b7 ${data.mem}</span>`); setRow('cores', data.cores); setRow('mem', data.mem); await wait(120);
+      line(`  <span class="term-k">gpu        </span> <span class="term-v">${data.gpu}</span>`); setRow('gpu', data.gpu); setRow('touch', data.touch); await wait(360);
+
+      line(`<span class="term-k">[*] reading session signals\u2026</span>`); await wait(340);
+      line(`  <span class="term-k">timezone   </span> <span class="term-v">${data.tz} \u00b7 ${data.time} local</span>`); setRow('tz', data.tz); setRow('time', data.time + ' local'); await wait(120);
+      line(`  <span class="term-k">language   </span> <span class="term-v">${data.lang}</span>`); setRow('lang', data.lang); await wait(120);
+      line(`  <span class="term-k">referrer   </span> <span class="term-v">${data.ref}</span>`);
+      setRow('ref', data.ref); setRow('arrived', data.arrived); setRow('cookies', data.cookies); setRow('conn', data.conn);
+      setRow('dnt', data.dnt, data.dnt === 'Enabled' ? 'good' : ''); await wait(360);
+
+      line(`<span class="term-k">[*] resolving network identity\u2026</span>`);
+      const ipInfo = await fetchIP();
+      await wait(260);
+      if (ipInfo && ipInfo.ip) {
+        line(`  <span class="term-k">public ip  </span> <span class="term-v">${ipInfo.ip}</span>`); setRow('ip', ipInfo.ip);
+        if (ipInfo.isp) { line(`  <span class="term-k">isp        </span> <span class="term-v">${ipInfo.isp}</span>`); setRow('isp', ipInfo.isp); }
+        if (ipInfo.asn) { setRow('asn', ipInfo.asn); }
+        if (ipInfo.city || ipInfo.country) {
+          const loc = [ipInfo.city, ipInfo.region, ipInfo.country].filter(Boolean).join(', ');
+          line(`  <span class="term-k">location   </span> <span class="term-v">${loc} <span class="term-warn">(approx.)</span></span>`);
+          setRow('city', ipInfo.city || '\u2014'); setRow('region', ipInfo.region || '\u2014'); setRow('country', ipInfo.country || '\u2014');
+        }
+      } else {
+        line(`  <span class="term-warn">network probe blocked or offline \u2014 good defenses.</span>`);
+        ['ip','isp','asn','city','region','country'].forEach(k => setRow(k, 'Blocked / offline', 'good'));
+      }
+      await wait(340);
+
+      line(`<span class="term-k">[*] testing privacy posture\u2026</span>`); await wait(300);
+      const ab = await detectAdblock();
+      line(`  <span class="term-k">ad blocker </span> ${ab ? '<span class="term-ok">detected \u00b7 active</span>' : '<span class="term-v">none detected</span>'}`);
+      setRow('adblock', ab ? 'Detected' : 'None', ab ? 'good' : ''); await wait(160);
+      const rtc = await webrtcLocalIP();
+      if (rtc && rtc.ip) {
+        line(`  <span class="term-k">webrtc     </span> <span class="term-warn">local IP leaked: ${rtc.ip}</span>`); setRow('rtc', rtc.ip);
+      } else if (rtc && rtc.mdns) {
+        line(`  <span class="term-k">webrtc     </span> <span class="term-ok">mDNS obfuscated \u2014 protected</span>`); setRow('rtc', 'mDNS protected', 'good');
+      } else {
+        line(`  <span class="term-k">webrtc     </span> <span class="term-ok">no leak \u2014 blocked or disabled</span>`); setRow('rtc', 'No leak', 'good');
+      }
+      await wait(420);
+      line(``);
+      line(`<span class="term-ok">[\u2713] scan complete \u2014 0 packets logged, 0 bytes stored.</span>`); await wait(160);
+      line(`<span class="term-q">$</span> <span class="term-k"># every site you visit runs this silently. \u0928\u093f\u0924\u094d\u092f\u0902 \u091c\u093e\u0917\u094d\u0930\u0924\u0903 \u092d\u0935.</span>`);
+    }
+
+    const term = document.querySelector('.term');
+    if (term) {
+      const tIO = new IntersectionObserver(es => {
+        es.forEach(e => { if (e.isIntersecting) { runTerminal(); tIO.disconnect(); } });
+      }, { threshold: 0.3 });
+      tIO.observe(term);
+    }
+  })();
 </script>
 </body>
 </html>
