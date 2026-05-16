@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sarthak Suwan — Computer Science student at SRM IST Chennai. Cybersecurity, software engineering, and clean, secure software." />
+  <meta name="author" content="Sarthak Suwan" />
+  <meta name="theme-color" content="#141311" />
+
+  <!-- Open Graph / social previews -->
+  <meta property="og:title" content="Sarthak Suwan — Portfolio" />
+  <meta property="og:description" content="CS student · Cybersecurity · Java Dev. Always be vigilant." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Inline SVG favicon: small orange dot on dark, matches site -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141311'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e07d45'/%3E%3C/svg%3E" />
   <title>Sarthak Suwan — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
@@ -33,6 +45,21 @@
     }
 
     html { scroll-behavior: smooth; }
+
+    /* ── CUSTOM CURSOR ───────────────────────── */
+    * { cursor: none !important; }
+    #cursor-dot {
+      position: fixed; z-index: 9999;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--text);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width .18s var(--ease), height .18s var(--ease), background .18s, opacity .18s;
+      mix-blend-mode: difference;
+      will-change: left, top;
+    }
+    #cursor-dot.hovering { width: 14px; height: 14px; background: var(--accent); }
+    #cursor-dot.clicking { width: 5px; height: 5px; }
 
     body {
       background: var(--bg);
@@ -414,6 +441,9 @@
 </head>
 <body>
 
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Sarthak<span class="dot">.</span></a>
@@ -424,7 +454,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#ee9d8f9c9a868f859d9b998f80dddeae89838f8782c08d8183" class="nav-cta">Get in touch</a>
+  <a href="mailto:sarthaksuwan30@gmail.com" class="nav-cta">Get in touch</a>
 </nav>
 
 <!-- HERO -->
@@ -673,9 +703,9 @@
     <div class="contact-inner">
       <p class="reveal">Whether it's a project, a collaboration, or just a conversation about security and code — my inbox is always open.</p>
       <div class="c-list reveal">
-        <a href="/cdn-cgi/l/email-protection#fc8f9d8e88949d978f898b9d92cfccbc9b919d9590d29f9391" class="c-row">
+        <a href="mailto:sarthaksuwan30@gmail.com" class="c-row">
           <span class="c-label">Email</span>
-          <span class="c-val"><span class="__cf_email__" data-cfemail="3d4e5c4f49555c564e484a5c530e0d7d5a505c5451135e5250">[email&#160;protected]</span></span>
+          <span class="c-val">sarthaksuwan30@gmail.com</span>
           <span class="c-arr">→</span>
         </a>
         <a href="https://github.com/SkyMaj0r" target="_blank" class="c-row">
@@ -696,10 +726,23 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 <span class="fa">Sarthak Suwan</span></p>
-  <p><a href="/cdn-cgi/l/email-protection#c8bba9babca0a9a3bbbdbfa9a6fbf888afa5a9a1a4e6aba7a5"><span class="__cf_email__" data-cfemail="2e5d4f5c5a464f455d5b594f401d1e6e49434f4742004d4143">[email&#160;protected]</span></a></p>
-</footer>
+  <p><a href="mailto:sarthaksuwan30@gmail.com">sarthaksuwan30@gmail.com</a></p>
+</footer><script>
+  // ── CUSTOM CURSOR ──────────────────────────
+  const dot = document.getElementById('cursor-dot');
+  let mx = 0, my = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+  });
+  document.addEventListener('mousedown', () => dot.classList.add('clicking'));
+  document.addEventListener('mouseup',   () => dot.classList.remove('clicking'));
+  document.querySelectorAll('a, button, .pill, .proj-card, .exp-card, .c-row, .stat').forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
+  });
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── DYNAMIC CURSOR ORBS ───────────────────
   const orbOrange = document.querySelector('.orb-orange');
   const orbTeal   = document.querySelector('.orb-teal');
